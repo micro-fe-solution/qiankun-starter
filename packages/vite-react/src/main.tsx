@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createLifecyle, getMicroApp } from 'vite-plugin-legacy-qiankun'
-import pkg from '../package.json'
-const microApp = getMicroApp('')
+
+const appName = 'vite-react';
+const microApp = getMicroApp(appName)
 
 const render = () => {
   ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -13,19 +14,17 @@ const render = () => {
   )
 }
 
-console.log(microApp.__POWERED_BY_QIANKUN__);
-
 if (microApp.__POWERED_BY_QIANKUN__) {
-  createLifecyle(pkg.name, {
+  createLifecyle(appName, {
     mount() {
-      console.log('mount', pkg.name);
+      console.log('mount', appName);
       render();
     },
     bootstrap() {
-      console.log('bootstrap', pkg.name);
+      console.log('bootstrap', appName);
     },
     unmount() {
-      console.log('unmount', pkg.name)
+      console.log('unmount', appName)
     }
   })
 } else {

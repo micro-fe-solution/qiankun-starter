@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "start": "pnpm run --parallel start",
+    "start:umi3": "pnpm run --filter @launcher/umi3 --filter @micro/* start",
+    "deploy": "gh-pages -d dist -b gh-pages -f"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "gh-pages": "^5.0.0",
+    "husky": "^8.0.3",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.8",
+    "vitest": "^0.31.1"
+  }
+}
