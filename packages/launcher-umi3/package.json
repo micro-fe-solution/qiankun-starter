@@ -1,14 +1,12 @@
 {
   "name": "@launcher/umi3",
+  "private": "true",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Umi3 基座",
   "scripts": {
     "start": "umi dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

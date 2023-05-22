@@ -1,0 +1,18 @@
+{
+  "name": "@launcher/umi4",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Umi4 基座",
+  "scripts": {
+    "start": "max dev",
+    "build": "max build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@umijs/max": "^4.0.69"
+  }
+}
