@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Umi3 基座",
   "scripts": {
-    "start": "umi dev"
+    "dev": "umi dev"
   },
   "license": "MIT",
   "dependencies": {

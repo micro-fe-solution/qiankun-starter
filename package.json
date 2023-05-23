@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start": "pnpm run --parallel start",
-    "start:umi3": "pnpm run --filter @launcher/umi3 --filter @micro/* start",
-    "start:umi4": "pnpm run --filter @launcher/umi4 --filter @micro/* start",
+    "start": "pnpm run -r --filter @launcher/vite --filter @micro/* dev",
+    "start:umi3": "pnpm run -r --filter @launcher/umi3 --filter @micro/* dev",
+    "start:umi4": "pnpm run -r --filter @launcher/umi4 --filter @micro/* start",
     "deploy": "gh-pages -d dist -b gh-pages -f"
   },
   "keywords": [],

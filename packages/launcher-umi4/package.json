@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Umi4 基座",
   "scripts": {
-    "start": "max dev",
+    "dev": "max dev",
     "build": "max build"
   },
   "license": "MIT",

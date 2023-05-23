@@ -48,7 +48,9 @@ export default defineConfig({
       name: 'vite-react',
       devSandbox: true
     }),
-    tsconfigPaths(),
+    tsconfigPaths({
+      root: __dirname,
+    }),
     createHtmlPlugin({
       inject: {
         data: {
