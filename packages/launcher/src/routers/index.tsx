@@ -18,7 +18,7 @@ export const routes: NonIndexRouteObject[] = [
         element: <Lazy entry={() => import('@/pages/home')} />,
       },
       {
-        path: 'vite-react',
+        path: 'vite-react/*',
         element: (
           <MicroApp
             name="vite-react"
