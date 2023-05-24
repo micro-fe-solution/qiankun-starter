@@ -16,8 +16,10 @@ const render = () => {
 
 if (microApp.__POWERED_BY_QIANKUN__) {
   createLifecyle(appName, {
-    mount() {
-      console.log('mount', appName);
+    mount(props) {
+      setTimeout(() => {
+        props.globalState.count = 2;
+      }, 2000);
       render();
     },
     bootstrap() {

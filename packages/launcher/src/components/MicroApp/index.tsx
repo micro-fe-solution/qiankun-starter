@@ -7,11 +7,18 @@ import React, {
 } from 'react';
 import isEqual from 'lodash/isEqual';
 import { loadMicroApp } from 'qiankun'
+import { Loader } from './Loader';
+import { ErrorBoundary } from './ErrorBoundary';
+import { proxy, useSnapshot } from 'valtio';
 
 import type { 
   FrameworkConfiguration, 
   MicroApp as MicroAppTypeDefinition,
-} from 'qiankun'
+} from 'qiankun';
+
+const globalState = proxy({
+  count: 1,
+})
 
 type MicroAppType = MicroAppTypeDefinition & {
   _unmounting?: boolean;
@@ -31,6 +38,10 @@ interface MicroAppProps extends FrameworkConfiguration {
   entry?: string;
   /** 初始化时需要传递给微应用的数据 */
   props?: any;
+  wrapperClassName?: string;
+  className?: string;
+  autoSetLoading?: boolean;
+  autoCaptureError?: boolean;
   loader?: (loading: boolean) => React.ReactNode;
   errorBoundary?: (error: any) => React.ReactNode;
   settings?: FrameworkConfiguration;
@@ -62,9 +73,13 @@ function useDeepCompare<T>(value: T): T {
 }
 
 export const InternalMicroApp: React.ForwardRefRenderFunction<MicroAppType, MicroAppProps> = (props, componentRef) => {
+  const { count } = useSnapshot(globalState);
   const { 
-    errorBoundary,
     settings: settingsFromProps = {},
+    className,
+    wrapperClassName,
+    loader,
+    errorBoundary,
     ...propsFromParams
   } = props;
 
@@ -82,7 +97,17 @@ export const InternalMicroApp: React.ForwardRefRenderFunction<MicroAppType, Micr
 
   useImperativeHandle(componentRef, () => microAppRef.current!);
 
-  const microAppErrorBoundary = errorBoundary ?? null;
+  const microAppLoader =
+    loader ||
+    (propsFromParams.autoSetLoading
+      ? (loading) => <Loader loading={loading} />
+      : null);
+
+  const microAppErrorBoundary =
+    errorBoundary ||
+    (propsFromParams.autoCaptureError
+      ? (e) => <ErrorBoundary error={e} />
+      : null);
 
   const setComponentError = (error: any) => {
     if (microAppErrorBoundary) {
@@ -111,7 +136,9 @@ export const InternalMicroApp: React.ForwardRefRenderFunction<MicroAppType, Micr
           name,
           entry,
           container: containerRef.current!,
-          props: {},
+          props: {
+            globalState
+          },
         },
         configuration,
       );
@@ -165,9 +192,31 @@ export const InternalMicroApp: React.ForwardRefRenderFunction<MicroAppType, Micr
     [useDeepCompare({ ...propsFromParams })]
   );
 
-  return (
-    <div ref={containerRef} />
-  )
+  const microAppWrapperClassName = wrapperClassName
+    ? `${wrapperClassName} qiankun-micro-app-wrapper`
+    : 'qiankun-micro-app-wrapper';
+
+  const microAppClassName = className
+    ? `${className} qiankun-micro-app-container`
+    : 'qiankun-micro-app-container';
+
+  return Boolean(microAppLoader) || Boolean(microAppErrorBoundary) ? (
+    <div
+      style={{ position: 'relative' }}
+      className={microAppWrapperClassName}
+    >
+      {Boolean(microAppLoader) && microAppLoader?.(loading)}
+      {Boolean(microAppErrorBoundary) &&
+        Boolean(error) &&
+        microAppErrorBoundary?.(error)}
+      <div ref={containerRef} className={microAppClassName} />
+    </div>
+  ) : (
+    <>
+      {count}
+      <div ref={containerRef} className={microAppClassName} />
+    </>
+  );
 }
 
 export const MicroApp = forwardRef<MicroAppType, MicroAppProps>(InternalMicroApp);
