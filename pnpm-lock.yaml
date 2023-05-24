@@ -31,6 +31,9 @@ importers:
       antd:
         specifier: ^5.5.0
         version: registry.npmmirror.com/antd@5.5.0(react-dom@18.2.0)(react@18.2.0)
+      lodash:
+        specifier: ^4.17.21
+        version: registry.npmmirror.com/lodash@4.17.21
       qiankun:
         specifier: ^2.10.8
         version: registry.npmmirror.com/qiankun@2.10.8
@@ -47,6 +50,9 @@ importers:
       '@emotion/babel-plugin':
         specifier: ^11.11.0
         version: registry.npmmirror.com/@emotion/babel-plugin@11.11.0
+      '@types/lodash':
+        specifier: ^4.14.194
+        version: registry.npmmirror.com/@types/lodash@4.14.194
       '@types/react':
         specifier: ^18.2.6
         version: registry.npmmirror.com/@types/react@18.2.6
@@ -4687,6 +4693,12 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/json-schema/-/json-schema-7.0.11.tgz}
     name: '@types/json-schema'
     version: 7.0.11
+
+  registry.npmmirror.com/@types/lodash@4.14.194:
+    resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.194.tgz}
+    name: '@types/lodash'
+    version: 4.14.194
+    dev: true
 
   registry.npmmirror.com/@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/minimist/-/minimist-1.2.2.tgz}
