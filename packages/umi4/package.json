@@ -5,7 +5,9 @@
   "description": "Umi4子模块",
   "scripts": {
     "dev": "max dev",
-    "build": "max build"
+    "start": "max dev",
+    "build": "max build",
+    "preview": "max preview"
   },
   "license": "MIT",
   "dependencies": {
