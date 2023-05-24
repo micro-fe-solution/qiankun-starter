@@ -1,14 +1,12 @@
 import React from 'react';
+import { useOutlet } from '@umijs/max';
 
-interface BasicLayoutProps {
-  children: React.ReactNode;
-}
-
-const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
+const BasicLayout: React.FC = () => {
+  const outlet = useOutlet();
   return (
     <>
       我是主应用
-      {props.children}
+      {outlet}
     </>
   )
 }
