@@ -46,6 +46,9 @@ importers:
       react-router-dom:
         specifier: ^6.11.2
         version: registry.npmmirror.com/react-router-dom@6.11.2(react-dom@18.2.0)(react@18.2.0)
+      valtio:
+        specifier: ^1.10.5
+        version: registry.npmmirror.com/valtio@1.10.5(react@18.2.0)
     devDependencies:
       '@emotion/babel-plugin':
         specifier: ^11.11.0
@@ -137,6 +140,9 @@ importers:
       react-router-dom:
         specifier: ^6.11.2
         version: registry.npmmirror.com/react-router-dom@6.11.2(react-dom@18.2.0)(react@18.2.0)
+      valtio:
+        specifier: ^1.10.5
+        version: registry.npmmirror.com/valtio@1.10.5(react@18.2.0)
     devDependencies:
       '@emotion/babel-plugin':
         specifier: ^11.11.0
@@ -16124,6 +16130,12 @@ packages:
     version: 2.4.0
     dev: true
 
+  registry.npmmirror.com/proxy-compare@2.5.1:
+    resolution: {integrity: sha512-oyfc0Tx87Cpwva5ZXezSp5V9vht1c7dZBhvuV/y3ctkgMVUmiAGDVeeB0dKhGSyT0v1ZTEQYpe/RXlBVBNuCLA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/proxy-compare/-/proxy-compare-2.5.1.tgz}
+    name: proxy-compare
+    version: 2.5.1
+    dev: false
+
   registry.npmmirror.com/prr@1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prr/-/prr-1.0.1.tgz}
     name: prr
@@ -20694,7 +20706,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: registry.npmmirror.com/react@18.2.0
-    dev: true
 
   registry.npmmirror.com/use@3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/use/-/use-3.1.1.tgz}
@@ -20760,6 +20771,23 @@ packages:
       spdx-correct: registry.npmmirror.com/spdx-correct@3.2.0
       spdx-expression-parse: registry.npmmirror.com/spdx-expression-parse@3.0.1
     dev: true
+
+  registry.npmmirror.com/valtio@1.10.5(react@18.2.0):
+    resolution: {integrity: sha512-jTp0k63VXf4r5hPoaC6a6LCG4POkVSh629WLi1+d5PlajLsbynTMd7qAgEiOSPxzoX5iNvbN7iZ/k/g29wrNiQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/valtio/-/valtio-1.10.5.tgz}
+    id: registry.npmmirror.com/valtio/1.10.5
+    name: valtio
+    version: 1.10.5
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=16.8'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      proxy-compare: registry.npmmirror.com/proxy-compare@2.5.1
+      react: registry.npmmirror.com/react@18.2.0
+      use-sync-external-store: registry.npmmirror.com/use-sync-external-store@1.2.0(react@18.2.0)
+    dev: false
 
   registry.npmmirror.com/valtio@1.9.0(react@18.2.0):
     resolution: {integrity: sha512-mQLFsAlKbYascZygFQh6lXuDjU5WHLoeZ8He4HqMnWfasM96V6rDbeFkw1XeG54xycmDonr/Jb4xgviHtuySrA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/valtio/-/valtio-1.9.0.tgz}
