@@ -1,120 +1,173 @@
-import { useLocation } from 'react-router-dom'
-import { loadMicroApp, initGlobalState } from 'qiankun'
-import { useState, useRef, useEffect, memo } from 'react'
+import React, {
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+  forwardRef,
+} from 'react';
+import isEqual from 'lodash/isEqual';
+import { loadMicroApp } from 'qiankun'
 
-import type { FrameworkConfiguration, MicroApp as MicroAppType } from 'qiankun'
+import type { 
+  FrameworkConfiguration, 
+  MicroApp as MicroAppTypeDefinition,
+} from 'qiankun'
+
+type MicroAppType = MicroAppTypeDefinition & {
+  _unmounting?: boolean;
+  _updatingPromise?: Promise<null>;
+  _updatingTimestamp?: number;
+};
+
+interface MicroAppConfig {
+  name: string;
+  entry: string;
+}
 
 interface MicroAppProps extends FrameworkConfiguration {
   /** 微应用的名称 */
-  name: string
+  name: string;
   /** 微应用的入口 */
-  entry?: string
+  entry?: string;
   /** 初始化时需要传递给微应用的数据 */
-  props?: any
-  [key: string]: any
+  props?: any;
+  loader?: (loading: boolean) => React.ReactNode;
+  errorBoundary?: (error: any) => React.ReactNode;
+  settings?: FrameworkConfiguration;
+  [key: string]: any;
 }
 
-const microAppEntryCache: any = {}
-const actions = initGlobalState({ hash: '' })
+const apps = [
+  {
+    "name": "vite-react",
+    "entry": "//localhost:9501"
+  },
+  {
+    "name": "umi4",
+    "entry": "//localhost:9502"
+  }
+]
 
-let prevAppUnmountPromise: Promise<unknown> = Promise.resolve()
+function unmountMicroApp(microApp: MicroAppType) {
+  microApp.mountPromise.then(() => microApp.unmount());
+}
 
-function run(fn: any, ...params: any[]) {
-  if (typeof fn === 'function') {
-    return fn(...params)
+function useDeepCompare<T>(value: T): T {
+  const ref = useRef<T>(value);
+  if (!isEqual(value, ref.current)) {
+    ref.current = value;
   }
 
-  return undefined
+  return ref.current;
 }
 
-const BaseMicroApp = memo(function MicroApp({
-  name,
-  entry,
-  sandbox = true,
-  props = {},
-}: MicroAppProps) {
-  const location = useLocation()
-  const [_, setReady] = useState(false)
+export const InternalMicroApp: React.ForwardRefRenderFunction<MicroAppType, MicroAppProps> = (props, componentRef) => {
+  const { 
+    errorBoundary,
+    settings: settingsFromProps = {},
+    ...propsFromParams
+  } = props;
 
-  const microApp = useRef<MicroAppType>()
-  const container = useRef<HTMLDivElement>(null)
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<any>(null);
+
+  const microAppRef = useRef<MicroAppType>();
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const name = props.name;
+  const isCurrentApp = (app: MicroAppConfig) => app.name === name;
+  const appConfig = apps.find((app) => isCurrentApp(app));
+
+  const { entry } = appConfig || {} as MicroAppConfig;
+
+  useImperativeHandle(componentRef, () => microAppRef.current!);
+
+  const microAppErrorBoundary = errorBoundary ?? null;
+
+  const setComponentError = (error: any) => {
+    if (microAppErrorBoundary) {
+      setError(error);
+      // error log 出来，不要吞
+      if (error) {
+        console.error(error);
+      }
+    } else if (error) {
+      throw error;
+    }
+  };
 
   useEffect(
     () => {
-      async function mount() {
-        await prevAppUnmountPromise
+      setLoading(true);
+      setComponentError(null);
 
-        window[name as any] = microAppEntryCache[name] ?? window[name as any];
+      const configuration = {
+        globalContext: window,
+        ...settingsFromProps,
+      };
 
-        console.log({
+      microAppRef.current = loadMicroApp(
+        {
           name,
-          entry: entry!,
-          container: container.current!,
-          props,
-        });
+          entry,
+          container: containerRef.current!,
+          props: {},
+        },
+        configuration,
+      );
 
-        microApp.current = loadMicroApp(
-          {
-            name,
-            entry: entry!,
-            container: container.current!,
-            props,
-          },
-          {
-            sandbox,
-          }
-        )
-
-        microApp.current.mountPromise.then(() => {
-          if (window[name as any]) {
-            microAppEntryCache[name] = window[name as any]
-          }
-
-          setReady(true)
-        })
-      }
-
-      mount()
+      (['loadPromise', 'bootstrapPromise', 'mountPromise'] as const).forEach(
+        (key) => {
+          const promise = microAppRef.current?.[key];
+          promise?.catch((e) => {
+            setComponentError(e);
+            setLoading(false);
+          });
+        },
+      );
 
       return () => {
-        // debugger
-        prevAppUnmountPromise = Promise.resolve(run(microApp.current?.unmount)).then(
-          () => {
-            // debugger
-          }
-        )
-      }
-    },
-    []
-  )
+        const microApp = microAppRef.current;
+
+        if (microApp) {
+          microApp._unmounting = true;
+          unmountMicroApp(microApp);
+        }
+      };
+    }, 
+    [name]
+  );
 
   useEffect(
     () => {
-      if (!microApp.current) {
-        return
-      }
-      run(microApp.current?.update, {
-        container: container.current,
-        props: {
-          ...props,
-          location,
-        },
-      })
-    },
-    [location, Object.values(props)]
-  )
+      const microApp = microAppRef.current;
 
-  useEffect(() => {
-    actions.setGlobalState(location)
-  }, [location])
+      if (!microApp) return;
+
+      if (!microApp._updatingPromise) {
+        microApp._updatingPromise = microApp.mountPromise;
+        microApp._updatingTimestamp = Date.now();
+      } else {
+        microApp._updatingPromise = microApp._updatingPromise.then(() => {
+          const canUpdate = (microApp?: MicroAppType) => microApp?.update && microApp.getStatus() === 'MOUNTED' && !microApp._unmounting;
+
+          if (canUpdate(microApp)) {
+            const props = {
+              ...propsFromParams,
+              setLoading,
+            };
+
+            return microApp.update?.(props);
+          }
+        })
+      }
+    }, 
+    [useDeepCompare({ ...propsFromParams })]
+  );
 
   return (
-    <>
-      <div className="micro-wrapper" ref={container} />
-    </>
+    <div ref={containerRef} />
   )
-})
-
-export function MicroApp(props: MicroAppProps) {
-  return <BaseMicroApp key={props.name} entry={`/${props.name}/`} {...props} />
 }
+
+export const MicroApp = forwardRef<MicroAppType, MicroAppProps>(InternalMicroApp);

@@ -25,7 +25,9 @@ export default defineConfig({
         "chrome": "58",
       }
     }),
-    tsconfigPaths(),
+    tsconfigPaths({
+      root: __dirname,
+    }),
     createHtmlPlugin({
       inject: {
         data: {
@@ -38,8 +40,5 @@ export default defineConfig({
     host: true,
     open: true,
     port: 9500,
-    proxy: {
-      '/map': 'http://localhost:9501',
-    },
   },
 })

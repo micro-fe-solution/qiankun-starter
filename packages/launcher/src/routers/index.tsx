@@ -18,21 +18,13 @@ export const routes: NonIndexRouteObject[] = [
         element: <Lazy entry={() => import('@/pages/home')} />,
       },
       {
-        path: 'micro',
-        children: [
-          {
-            path: 'map',
-            element: (
-              <MicroApp
-                name="map"
-                sandbox={{
-                  experimentalStyleIsolation: true,
-                }}
-                props={{}}
-              />
-            ),
-          },
-        ]
+        path: 'vite-react',
+        element: (
+          <MicroApp
+            name="vite-react"
+            props={{}}
+          />
+        ),
       },
     ],
   },
