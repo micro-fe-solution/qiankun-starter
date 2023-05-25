@@ -1,8 +1,8 @@
 import React from 'react'
 import { useRoutes, Navigate, type NonIndexRouteObject } from 'react-router-dom'
+import { MicroApp } from '@pansy/qiankun-react-shared';
 import { BasicLayout } from '@/layouts/BasicLayout';
 import { Lazy } from '@/components/Lazy';
-import { MicroApp } from '@/components/MicroApp';
 import Login from '@/pages/login'
 
 export const routes: NonIndexRouteObject[] = [

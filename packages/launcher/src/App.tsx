@@ -1,11 +1,26 @@
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { QiankunConfig } from '@pansy/qiankun-react-shared';
 import { Router } from '@/routers';
 
-function App() {
+const apps = [
+  {
+    name: 'vite-react',
+    entry: '//localhost:9501'
+  },
+  {
+    name: 'umi4',
+    entry: '//localhost:9502'
+  }
+];
+
+const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <QiankunConfig apps={apps}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </QiankunConfig>
   )
 }
 

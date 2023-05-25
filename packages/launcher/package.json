@@ -9,11 +9,10 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.11.0",
+    "@pansy/qiankun-react-shared": "^1.0.0",
     "antd": "^5.5.0",
     "lodash": "^4.17.21",
     "qiankun": "^2.10.8",
