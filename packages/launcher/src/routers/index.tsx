@@ -26,6 +26,15 @@ export const routes: NonIndexRouteObject[] = [
           />
         ),
       },
+      {
+        path: 'svelte/*',
+        element: (
+          <MicroApp
+            name="svelte"
+            props={{}}
+          />
+        ),
+      },
     ],
   },
   {

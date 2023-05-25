@@ -11,6 +11,10 @@ const apps = [
   {
     name: 'umi4',
     entry: '//localhost:9502'
+  },
+  {
+    name: 'svelte',
+    entry: '//localhost:9503'
   }
 ];
 
