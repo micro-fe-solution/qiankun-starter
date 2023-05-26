@@ -17,8 +17,20 @@ export default defineConfig({
       component: '../layouts/BasicLayout',
       routes: [
         {
+          path: '/umi4',
+          microApp: 'umi4',
+        },
+        {
           path: '/vite-react',
           microApp: 'vite-react',
+        },
+        {
+          path: '/vite-svelte',
+          microApp: 'vite-svelte',
+        },
+        {
+          path: '/vite-vue3',
+          microApp: 'vite-vue3',
         },
       ],
     },

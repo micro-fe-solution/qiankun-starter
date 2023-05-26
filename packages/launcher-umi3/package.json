@@ -1,6 +1,6 @@
 {
   "name": "@launcher/umi3",
-  "private": "true",
+  "private": true,
   "version": "1.0.0",
   "description": "Umi3 基座",
   "scripts": {
