@@ -16,9 +16,13 @@
 - 父应用 Umi3
   - 子应用 Umi4
   - 子应用 Vite(React)
+  - 子应用 Vite(Svelte)
+  - 子应用 Vite(Vue3)
 - 父应用 Umi4
   - 子应用 Umi4
   - 子应用 Vite(React)
+  - 子应用 Vite(Svelte)
+  - 子应用 Vite(Vue3)
 
 ## ⌨️ 本地开发
 
