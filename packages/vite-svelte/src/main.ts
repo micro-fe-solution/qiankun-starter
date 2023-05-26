@@ -3,7 +3,7 @@ import { createLifecyle, getMicroApp } from 'vite-plugin-legacy-qiankun'
 
 import type { SvelteComponent } from 'svelte';
 
-const appName = 'svelte';
+const appName = 'vite-svelte';
 const microApp = getMicroApp(appName)
 
 let app: SvelteComponent | null = null;

@@ -5,17 +5,21 @@ import { Router } from '@/routers';
 
 const apps = [
   {
-    name: 'vite-react',
+    name: 'umi4',
     entry: '//localhost:9501'
   },
   {
-    name: 'umi4',
+    name: 'vite-react',
     entry: '//localhost:9502'
   },
   {
-    name: 'svelte',
+    name: 'vite-svelte',
     entry: '//localhost:9503'
-  }
+  },
+  {
+    name: 'vite-vue3',
+    entry: '//localhost:9504'
+  },
 ];
 
 const App: React.FC = () => {

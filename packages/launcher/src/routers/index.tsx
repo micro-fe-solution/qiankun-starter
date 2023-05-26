@@ -18,21 +18,27 @@ export const routes: NonIndexRouteObject[] = [
         element: <Lazy entry={() => import('@/pages/home')} />,
       },
       {
-        path: 'vite-react/*',
+        path: 'umi4/*',
         element: (
-          <MicroApp
-            name="vite-react"
-            props={{}}
-          />
+          <MicroApp name="umi4" />
         ),
       },
       {
-        path: 'svelte/*',
+        path: 'vite-react/*',
         element: (
-          <MicroApp
-            name="svelte"
-            props={{}}
-          />
+          <MicroApp name="vite-react" />
+        ),
+      },
+      {
+        path: 'vite-vue3/*',
+        element: (
+          <MicroApp name="vite-vue3" />
+        ),
+      },
+      {
+        path: 'vite-svelte/*',
+        element: (
+          <MicroApp name="vite-svelte" />
         ),
       },
     ],

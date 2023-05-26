@@ -3,7 +3,7 @@ import legacy from '@vitejs/plugin-legacy'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { legacyQiankun } from 'vite-plugin-legacy-qiankun'
 
-const microName = 'svelte';
+const microName = 'vite-svelte';
 
 // https://vitejs.dev/config/
 export default defineConfig({
