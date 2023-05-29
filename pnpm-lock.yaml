@@ -24,7 +24,7 @@ importers:
         version: registry.npmmirror.com/typescript@5.0.4
       vite:
         specifier: ^4.3.8
-        version: registry.npmmirror.com/vite@4.3.8(@types/node@20.2.1)
+        version: registry.npmmirror.com/vite@4.3.8(terser@5.17.4)
       vitest:
         specifier: ^0.31.1
         version: registry.npmmirror.com/vitest@0.31.1
@@ -112,6 +112,28 @@ importers:
       '@umijs/max':
         specifier: ^4.0.69
         version: registry.npmmirror.com/@umijs/max@4.0.69(@babel/core@7.21.8)(@types/react-dom@18.2.4)(@types/react@18.2.6)(dva@2.5.0-beta.2)(postcss@8.4.23)(prettier@2.2.1)(prop-types@15.8.1)(rc-field-form@1.31.0)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)(typescript@5.0.4)(webpack@5.83.1)
+
+  packages/umi3:
+    dependencies:
+      lodash:
+        specifier: ^4.17.21
+        version: registry.npmmirror.com/lodash@4.17.21
+      react:
+        specifier: ^18.2.0
+        version: registry.npmmirror.com/react@18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
+      umi:
+        specifier: ^3.5.40
+        version: registry.npmmirror.com/umi@3.5.40(react-router@5.2.0)
+    devDependencies:
+      '@umijs/plugin-qiankun':
+        specifier: ^2.43.3
+        version: registry.npmmirror.com/@umijs/plugin-qiankun@2.43.3(react-dom@18.2.0)(react@18.2.0)(umi@3.5.40)(webpack@4.46.0)
+      '@umijs/preset-react':
+        specifier: ^1.8.32
+        version: registry.npmmirror.com/@umijs/preset-react@1.8.32(@ant-design/icons@4.8.0)(@ant-design/pro-layout@6.38.22)(dva-core@1.6.0-beta.7)(react-dom@18.2.0)(react-router@5.2.0)(react@18.2.0)(redbox-react@1.6.0)(umi@3.5.40)
 
   packages/umi4:
     dependencies:

@@ -1,0 +1,21 @@
+{
+  "name": "@micro/umi3",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Umi3 子应用",
+  "scripts": {
+    "dev": "umi dev",
+    "start": "umi dev"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "umi": "^3.5.40"
+  },
+  "devDependencies": {
+    "@umijs/plugin-qiankun": "^2.43.3",
+    "@umijs/preset-react": "^1.8.32"
+  }
+}

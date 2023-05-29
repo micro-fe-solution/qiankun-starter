@@ -5,6 +5,10 @@ import { Router } from '@/routers';
 
 const apps = [
   {
+    name: 'umi3',
+    entry: '//localhost:9501'
+  },
+  {
     name: 'umi4',
     entry: '//localhost:9501'
   },
