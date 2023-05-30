@@ -10,6 +10,14 @@
     "start:umi3": "pnpm run --filter @launcher/umi3 dev",
     "start:umi4": "pnpm run --filter @launcher/umi4 dev"
   },
+  "lint-staged": {
+    "*.{jsx,less,md,json}": [
+      "prettier --no-error-on-unmatched-pattern --cache --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --no-error-on-unmatched-pattern --cache --parser=typescript --write"
+    ]
+  },
   "devDependencies": {
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
