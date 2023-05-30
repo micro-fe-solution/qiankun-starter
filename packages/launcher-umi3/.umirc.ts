@@ -17,6 +17,10 @@ export default defineConfig({
       component: '../layouts/BasicLayout',
       routes: [
         {
+          path: '/umi3',
+          microApp: 'umi3',
+        },
+        {
           path: '/umi4',
           microApp: 'umi4',
         },

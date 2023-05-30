@@ -18,6 +18,12 @@ export const routes: NonIndexRouteObject[] = [
         element: <Lazy entry={() => import('@/pages/home')} />,
       },
       {
+        path: 'umi3/*',
+        element: (
+          <MicroApp name="umi3" />
+        ),
+      },
+      {
         path: 'umi4/*',
         element: (
           <MicroApp name="umi4" />
