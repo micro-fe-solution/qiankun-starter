@@ -1,14 +1,14 @@
-import React from 'react'
-import { useRoutes, Navigate, type NonIndexRouteObject } from 'react-router-dom'
+import React from 'react';
+import { useRoutes, Navigate, type NonIndexRouteObject } from 'react-router-dom';
 import { MicroApp } from '@pansy/qiankun-react-shared';
 import { BasicLayout } from '@/layouts/BasicLayout';
 import { Lazy } from '@/components/Lazy';
-import Login from '@/pages/login'
+import Login from '@/pages/login';
 
 export const routes: NonIndexRouteObject[] = [
   {
     path: '/',
-    element: <Navigate to="/home" />
+    element: <Navigate to="/home" />,
   },
   {
     element: <BasicLayout />,
@@ -19,46 +19,36 @@ export const routes: NonIndexRouteObject[] = [
       },
       {
         path: 'umi3/*',
-        element: (
-          <MicroApp name="umi3" />
-        ),
+        element: <MicroApp name="umi3" />,
       },
       {
         path: 'umi4/*',
-        element: (
-          <MicroApp name="umi4" />
-        ),
+        element: <MicroApp name="umi4" />,
+      },
+      {
+        path: 'vite-preact/*',
+        element: <MicroApp name="vite-preact" />,
       },
       {
         path: 'vite-react/*',
-        element: (
-          <MicroApp name="vite-react" />
-        ),
+        element: <MicroApp name="vite-react" />,
       },
       {
         path: 'vite-vue3/*',
-        element: (
-          <MicroApp name="vite-vue3" />
-        ),
+        element: <MicroApp name="vite-vue3" />,
       },
       {
         path: 'vite-svelte/*',
-        element: (
-          <MicroApp name="vite-svelte" />
-        ),
+        element: <MicroApp name="vite-svelte" />,
       },
     ],
   },
   {
     path: 'login',
     element: <Login />,
-  }
+  },
 ];
 
 export const Router: React.FC = () => {
-  return (
-    <>
-      {useRoutes(routes)}
-    </>
-  )
-}
+  return <>{useRoutes(routes)}</>;
+};

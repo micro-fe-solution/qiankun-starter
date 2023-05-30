@@ -1,0 +1,22 @@
+{
+  "name": "@micro/vite-preact",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "preview": "vite preview",
+    "start": "vite"
+  },
+  "dependencies": {
+    "preact": "^10.13.2"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.5.0",
+    "@vitejs/plugin-legacy": "^4.0.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-legacy-qiankun": "^0.0.12"
+  }
+}

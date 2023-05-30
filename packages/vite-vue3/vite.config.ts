@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import legacy from '@vitejs/plugin-legacy'
-import { legacyQiankun } from 'vite-plugin-legacy-qiankun'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import legacy from '@vitejs/plugin-legacy';
+import { legacyQiankun } from 'vite-plugin-legacy-qiankun';
 
 const microName = 'vite-vue3';
 
@@ -13,14 +13,14 @@ export default defineConfig({
     legacy({
       targets: {
         chrome: '58',
-      }
+      },
     }),
     legacyQiankun({
       name: microName,
-      devSandbox: true
+      devSandbox: true,
     }),
   ],
   server: {
-    port: 9505,
+    port: 9506,
   },
-})
+});

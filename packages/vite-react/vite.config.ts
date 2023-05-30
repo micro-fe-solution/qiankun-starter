@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import pages from 'vite-plugin-pages'
-import legacy from '@vitejs/plugin-legacy'
-import { legacyQiankun } from 'vite-plugin-legacy-qiankun'
-import tsconfigPaths from 'vite-tsconfig-paths'
-import { createHtmlPlugin } from 'vite-plugin-html'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import pages from 'vite-plugin-pages';
+import legacy from '@vitejs/plugin-legacy';
+import { legacyQiankun } from 'vite-plugin-legacy-qiankun';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 const microName = 'vite-react';
 
@@ -38,17 +38,17 @@ export default defineConfig({
         '**/hooks/**/*',
         '**/model.tsx',
         '**/tests/**/*',
-        '**/__test__/**/*'
+        '**/__test__/**/*',
       ],
     }),
     legacy({
       targets: {
         chrome: '58',
-      }
+      },
     }),
     legacyQiankun({
       name: microName,
-      devSandbox: true
+      devSandbox: true,
     }),
     tsconfigPaths({
       root: __dirname,
@@ -56,12 +56,12 @@ export default defineConfig({
     createHtmlPlugin({
       inject: {
         data: {
-          title: 'Vite React Starter'
-        }
-      }
+          title: 'Vite React Starter',
+        },
+      },
     }),
   ],
   server: {
-    port: 9503,
+    port: 9504,
   },
-})
+});

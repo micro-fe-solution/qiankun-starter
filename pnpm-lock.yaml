@@ -33,7 +33,7 @@ importers:
         version: registry.npmmirror.com/typescript@5.0.4
       vite:
         specifier: ^4.3.8
-        version: registry.npmmirror.com/vite@4.3.8(@types/node@20.2.1)
+        version: registry.npmmirror.com/vite@4.3.8(terser@5.17.4)
       vitest:
         specifier: ^0.31.1
         version: registry.npmmirror.com/vitest@0.31.1
@@ -156,6 +156,28 @@ importers:
       '@umijs/max':
         specifier: ^4.0.69
         version: registry.npmmirror.com/@umijs/max@4.0.69(@babel/core@7.21.8)(@types/react-dom@18.2.4)(@types/react@18.2.6)(dva@2.5.0-beta.2)(postcss@8.4.23)(prettier@2.8.8)(prop-types@15.8.1)(rc-field-form@1.31.0)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)(typescript@5.0.4)(webpack@5.83.1)
+
+  packages/vite-preact:
+    dependencies:
+      preact:
+        specifier: ^10.13.2
+        version: registry.npmmirror.com/preact@10.13.2
+    devDependencies:
+      '@preact/preset-vite':
+        specifier: ^2.5.0
+        version: registry.npmmirror.com/@preact/preset-vite@2.5.0(@babel/core@7.21.8)(preact@10.13.2)(vite@4.3.9)
+      '@vitejs/plugin-legacy':
+        specifier: ^4.0.3
+        version: registry.npmmirror.com/@vitejs/plugin-legacy@4.0.3(terser@5.17.4)(vite@4.3.9)
+      typescript:
+        specifier: ^5.0.2
+        version: registry.npmmirror.com/typescript@5.0.4
+      vite:
+        specifier: ^4.3.9
+        version: registry.npmmirror.com/vite@4.3.9(terser@5.17.4)
+      vite-plugin-legacy-qiankun:
+        specifier: ^0.0.12
+        version: registry.npmmirror.com/vite-plugin-legacy-qiankun@0.0.12
 
   packages/vite-react:
     dependencies:
@@ -4200,6 +4222,73 @@ packages:
       webpack: registry.npmmirror.com/webpack@5.83.1
     dev: true
 
+  registry.npmmirror.com/@preact/preset-vite@2.5.0(@babel/core@7.21.8)(preact@10.13.2)(vite@4.3.9):
+    resolution: {integrity: sha512-BUhfB2xQ6ex0yPkrT1Z3LbfPzjpJecOZwQ/xJrXGFSZD84+ObyS//41RdEoQCMWsM0t7UHGaujUxUBub7WM1Jw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@preact/preset-vite/-/preset-vite-2.5.0.tgz}
+    id: registry.npmmirror.com/@preact/preset-vite/2.5.0
+    name: '@preact/preset-vite'
+    version: 2.5.0
+    peerDependencies:
+      '@babel/core': 7.x
+      vite: 2.x || 3.x || 4.x
+    dependencies:
+      '@babel/core': registry.npmmirror.com/@babel/core@7.21.8
+      '@babel/plugin-transform-react-jsx': registry.npmmirror.com/@babel/plugin-transform-react-jsx@7.21.5(@babel/core@7.21.8)
+      '@babel/plugin-transform-react-jsx-development': registry.npmmirror.com/@babel/plugin-transform-react-jsx-development@7.18.6(@babel/core@7.21.8)
+      '@prefresh/vite': registry.npmmirror.com/@prefresh/vite@2.3.0(preact@10.13.2)(vite@4.3.9)
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@4.2.1
+      babel-plugin-transform-hook-names: registry.npmmirror.com/babel-plugin-transform-hook-names@1.0.2(@babel/core@7.21.8)
+      debug: registry.npmmirror.com/debug@4.3.4(supports-color@5.5.0)
+      kolorist: registry.npmmirror.com/kolorist@1.8.0
+      resolve: registry.npmmirror.com/resolve@1.22.2
+      vite: registry.npmmirror.com/vite@4.3.9(terser@5.17.4)
+    transitivePeerDependencies:
+      - preact
+      - supports-color
+    dev: true
+
+  registry.npmmirror.com/@prefresh/babel-plugin@0.5.0:
+    resolution: {integrity: sha512-joAwpkUDwo7ZqJnufXRGzUb+udk20RBgfA8oLPBh5aJH2LeStmV1luBfeJTztPdyCscC2j2SmZ/tVxFRMIxAEw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@prefresh/babel-plugin/-/babel-plugin-0.5.0.tgz}
+    name: '@prefresh/babel-plugin'
+    version: 0.5.0
+    dev: true
+
+  registry.npmmirror.com/@prefresh/core@1.5.0(preact@10.13.2):
+    resolution: {integrity: sha512-C8zcVW77HD/jh47sLJ4vX2//qFrdr6kpBwsLDD84bSl2cvmCamZImnaDvimxrhxcN9oeC+8qnUl92SxQFQY0rg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@prefresh/core/-/core-1.5.0.tgz}
+    id: registry.npmmirror.com/@prefresh/core/1.5.0
+    name: '@prefresh/core'
+    version: 1.5.0
+    peerDependencies:
+      preact: ^10.0.0
+    dependencies:
+      preact: registry.npmmirror.com/preact@10.13.2
+    dev: true
+
+  registry.npmmirror.com/@prefresh/utils@1.2.0:
+    resolution: {integrity: sha512-KtC/fZw+oqtwOLUFM9UtiitB0JsVX0zLKNyRTA332sqREqSALIIQQxdUCS1P3xR/jT1e2e8/5rwH6gdcMLEmsQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@prefresh/utils/-/utils-1.2.0.tgz}
+    name: '@prefresh/utils'
+    version: 1.2.0
+    dev: true
+
+  registry.npmmirror.com/@prefresh/vite@2.3.0(preact@10.13.2)(vite@4.3.9):
+    resolution: {integrity: sha512-3ekbngrfWYeKGTy54wPCwRx9qBPnMe0lVe33z0rWjW3rgXWTBVZusFLub5QgJYEZNjYjJJBlSv1flekIjpI5Rw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@prefresh/vite/-/vite-2.3.0.tgz}
+    id: registry.npmmirror.com/@prefresh/vite/2.3.0
+    name: '@prefresh/vite'
+    version: 2.3.0
+    peerDependencies:
+      preact: ^10.4.0
+      vite: '>=2.0.0-beta.3'
+    dependencies:
+      '@babel/core': registry.npmmirror.com/@babel/core@7.21.8
+      '@prefresh/babel-plugin': registry.npmmirror.com/@prefresh/babel-plugin@0.5.0
+      '@prefresh/core': registry.npmmirror.com/@prefresh/core@1.5.0(preact@10.13.2)
+      '@prefresh/utils': registry.npmmirror.com/@prefresh/utils@1.2.0
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@4.2.1
+      preact: registry.npmmirror.com/preact@10.13.2
+      vite: registry.npmmirror.com/vite@4.3.9(terser@5.17.4)
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/@qixian.cs/path-to-regexp@6.1.0:
     resolution: {integrity: sha512-2jIiLiVZB1jnY7IIRQKtoV8Gnr7XIhk4mC88ONGunZE3hYt5IHUG4BE/6+JiTBjjEWQLBeWnZB8hGpppkufiVw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@qixian.cs/path-to-regexp/-/path-to-regexp-6.1.0.tgz}
     name: '@qixian.cs/path-to-regexp'
@@ -6439,6 +6528,29 @@ packages:
       - supports-color
     dev: true
 
+  registry.npmmirror.com/@vitejs/plugin-legacy@4.0.3(terser@5.17.4)(vite@4.3.9):
+    resolution: {integrity: sha512-RqDQOSEmFSNL42vITkNp8HE8Ak1yjGgaav4B6BGcZ8/URK0wikzwSyhNRirHDkp+snflEEk7iPZXTXUYA9exbg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vitejs/plugin-legacy/-/plugin-legacy-4.0.3.tgz}
+    id: registry.npmmirror.com/@vitejs/plugin-legacy/4.0.3
+    name: '@vitejs/plugin-legacy'
+    version: 4.0.3
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      terser: ^5.4.0
+      vite: ^4.0.0
+    dependencies:
+      '@babel/core': registry.npmmirror.com/@babel/core@7.21.8
+      '@babel/preset-env': registry.npmmirror.com/@babel/preset-env@7.21.5(@babel/core@7.21.8)
+      browserslist: registry.npmmirror.com/browserslist@4.21.5
+      core-js: registry.npmmirror.com/core-js@3.30.2
+      magic-string: registry.npmmirror.com/magic-string@0.30.0
+      regenerator-runtime: registry.npmmirror.com/regenerator-runtime@0.13.11
+      systemjs: registry.npmmirror.com/systemjs@6.14.1
+      terser: registry.npmmirror.com/terser@5.17.4
+      vite: registry.npmmirror.com/vite@4.3.9(terser@5.17.4)
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/@vitejs/plugin-react@3.1.0(vite@4.3.8):
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vitejs/plugin-react/-/plugin-react-3.1.0.tgz}
     id: registry.npmmirror.com/@vitejs/plugin-react/3.1.0
@@ -7994,6 +8106,17 @@ packages:
     resolution: {integrity: sha512-qrPaCSo9c8RHNRHIotaufGbuOBN8rtdC4QrrFFc43vyWCCz7Kl7GL1PGaXtMGQZUXrkCjNEgxDfmAuAabr/rlw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz}
     name: babel-plugin-syntax-jsx
     version: 6.18.0
+    dev: true
+
+  registry.npmmirror.com/babel-plugin-transform-hook-names@1.0.2(@babel/core@7.21.8):
+    resolution: {integrity: sha512-5gafyjyyBTTdX/tQQ0hRgu4AhNHG/hqWi0ZZmg2xvs2FgRkJXzDNKBZCyoYqgFkovfDrgM8OoKg8karoUvWeCw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/babel-plugin-transform-hook-names/-/babel-plugin-transform-hook-names-1.0.2.tgz}
+    id: registry.npmmirror.com/babel-plugin-transform-hook-names/1.0.2
+    name: babel-plugin-transform-hook-names
+    version: 1.0.2
+    peerDependencies:
+      '@babel/core': ^7.12.10
+    dependencies:
+      '@babel/core': registry.npmmirror.com/@babel/core@7.21.8
     dev: true
 
   registry.npmmirror.com/babel-preset-current-node-syntax@1.0.1(@babel/core@7.18.6):
@@ -16600,6 +16723,11 @@ packages:
       picocolors: registry.npmmirror.com/picocolors@1.0.0
       source-map-js: registry.npmmirror.com/source-map-js@1.0.2
 
+  registry.npmmirror.com/preact@10.13.2:
+    resolution: {integrity: sha512-q44QFLhOhty2Bd0Y46fnYW0gD/cbVM9dUVtNTDKPcdXSMA7jfY+Jpd6rk3GB0lcQss0z5s/6CmVP0Z/hV+g6pw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/preact/-/preact-10.13.2.tgz}
+    name: preact
+    version: 10.13.2
+
   registry.npmmirror.com/prelude-ls@1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prelude-ls/-/prelude-ls-1.1.2.tgz}
     name: prelude-ls
@@ -21703,7 +21831,7 @@ packages:
       mlly: registry.npmmirror.com/mlly@1.2.1
       pathe: registry.npmmirror.com/pathe@1.1.0
       picocolors: registry.npmmirror.com/picocolors@1.0.0
-      vite: registry.npmmirror.com/vite@4.3.8(@types/node@20.2.1)
+      vite: registry.npmmirror.com/vite@4.3.9(@types/node@20.2.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -21828,11 +21956,47 @@ packages:
       fsevents: registry.npmmirror.com/fsevents@2.3.2
     dev: true
 
-  registry.npmmirror.com/vite@4.3.8(@types/node@20.2.1):
+  registry.npmmirror.com/vite@4.3.8(terser@5.17.4):
     resolution: {integrity: sha512-uYB8PwN7hbMrf4j1xzGDk/lqjsZvCDbt/JC5dyfxc19Pg8kRm14LinK/uq+HSLNswZEoKmweGdtpbnxRtrAXiQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-4.3.8.tgz}
     id: registry.npmmirror.com/vite/4.3.8
     name: vite
     version: 4.3.8
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: registry.npmmirror.com/esbuild@0.17.19
+      postcss: registry.npmmirror.com/postcss@8.4.23
+      rollup: registry.npmmirror.com/rollup@3.22.0
+      terser: registry.npmmirror.com/terser@5.17.4
+    optionalDependencies:
+      fsevents: registry.npmmirror.com/fsevents@2.3.2
+    dev: true
+
+  registry.npmmirror.com/vite@4.3.9(@types/node@20.2.1):
+    resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-4.3.9.tgz}
+    id: registry.npmmirror.com/vite/4.3.9
+    name: vite
+    version: 4.3.9
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -21864,11 +22028,11 @@ packages:
       fsevents: registry.npmmirror.com/fsevents@2.3.2
     dev: true
 
-  registry.npmmirror.com/vite@4.3.8(terser@5.17.4):
-    resolution: {integrity: sha512-uYB8PwN7hbMrf4j1xzGDk/lqjsZvCDbt/JC5dyfxc19Pg8kRm14LinK/uq+HSLNswZEoKmweGdtpbnxRtrAXiQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-4.3.8.tgz}
-    id: registry.npmmirror.com/vite/4.3.8
+  registry.npmmirror.com/vite@4.3.9(terser@5.17.4):
+    resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-4.3.9.tgz}
+    id: registry.npmmirror.com/vite/4.3.9
     name: vite
-    version: 4.3.8
+    version: 4.3.9
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -21969,7 +22133,7 @@ packages:
       strip-literal: registry.npmmirror.com/strip-literal@1.0.1
       tinybench: registry.npmmirror.com/tinybench@2.5.0
       tinypool: registry.npmmirror.com/tinypool@0.5.0
-      vite: registry.npmmirror.com/vite@4.3.8(@types/node@20.2.1)
+      vite: registry.npmmirror.com/vite@4.3.9(@types/node@20.2.1)
       vite-node: registry.npmmirror.com/vite-node@0.31.1(@types/node@20.2.1)
       why-is-node-running: registry.npmmirror.com/why-is-node-running@2.2.2
     transitivePeerDependencies:
